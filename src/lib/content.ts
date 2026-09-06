@@ -12,10 +12,10 @@ export const SITE = {
 };
 
 export const NAV = [
-  { label: "Services", href: "#services" },
-  { label: "Méthode", href: "#methode" },
-  { label: "Tarifs", href: "#tarifs" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Méthode", href: "/methode" },
+  { label: "Tarifs", href: "/tarifs" },
+  { label: "Agence", href: "/agence" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export const PAIN_POINTS = [

@@ -12,18 +12,9 @@ export function FAQSection() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="faq" className="relative py-24 md:py-36">
+    <section className="relative py-16 md:py-24">
       <div className="mx-auto max-w-3xl px-4 md:px-8">
-        <Reveal className="text-center">
-          <h2
-            className="font-semibold tracking-tight text-balance text-text-primary"
-            style={{ fontSize: "clamp(2rem, 3vw + 1rem, 3rem)", lineHeight: 1.08 }}
-          >
-            Les questions qu&apos;on nous pose vraiment.
-          </h2>
-        </Reveal>
-
-        <div className="mt-12 space-y-3">
+        <div className="space-y-3">
           {FAQ.map((item, i) => {
             const isOpen = open === i;
             return (

@@ -1,29 +1,33 @@
-import { Header } from "@/components/sections/Header";
+import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { Problem } from "@/components/sections/Problem";
 import { Services } from "@/components/sections/Services";
 import { Method } from "@/components/sections/Method";
 import { Marquee } from "@/components/sections/Marquee";
-import { Pricing } from "@/components/sections/Pricing";
-import { Proof } from "@/components/sections/Proof";
-import { FAQSection } from "@/components/sections/FAQSection";
+import { PricingTeaser } from "@/components/sections/PricingTeaser";
+import { ProofTeaser } from "@/components/sections/ProofTeaser";
+import { FAQTeaser } from "@/components/sections/FAQTeaser";
 import { FinalCTA } from "@/components/sections/FinalCTA";
-import { Footer } from "@/components/sections/Footer";
+
+export const metadata: Metadata = {
+  title: "alva digital — Agence web à Paris pour artisans",
+  description:
+    "Agence web parisienne pour artisans (plomberie, couverture, électricité, menuiserie...). Sites qui génèrent des demandes de devis. SEO local. Audit gratuit en 30 minutes.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
     <main className="relative overflow-x-hidden bg-bg text-text-primary">
-      <Header />
       <Hero />
       <Problem />
       <Services />
-      <Method />
+      <Method compact />
       <Marquee />
-      <Pricing />
-      <Proof />
-      <FAQSection />
+      <PricingTeaser />
+      <ProofTeaser />
+      <FAQTeaser />
       <FinalCTA />
-      <Footer />
     </main>
   );
 }

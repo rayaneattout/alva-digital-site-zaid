@@ -2,14 +2,16 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { CalendarCheck, Compass, Code2, Rocket } from "lucide-react";
+import { ArrowRight, CalendarCheck, Compass, Code2, Rocket } from "lucide-react";
 import { METHOD_STEPS } from "@/lib/content";
+import { ROUTES } from "@/lib/routes";
 import { Reveal } from "@/components/ui/Reveal";
 import { GlowOrb } from "@/components/ui/GlowOrb";
+import { Button } from "@/components/ui/Button";
 
 const ICONS = [CalendarCheck, Compass, Code2, Rocket];
 
-export function Method() {
+export function Method({ compact = false }: { compact?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
@@ -20,7 +22,6 @@ export function Method() {
 
   return (
     <section
-      id="methode"
       ref={containerRef}
       className="relative overflow-hidden bg-bg-elevated py-24 md:py-36"
     >
@@ -69,13 +70,22 @@ export function Method() {
                       </h3>
                     </div>
                     <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-secondary md:text-lg">
-                      {step.desc}
+                      {compact ? step.desc.split(".")[0] + "." : step.desc}
                     </p>
                   </Reveal>
                 </li>
               );
             })}
           </ol>
+
+          {compact && (
+            <Reveal delay={0.3} className="mt-16 ml-[-1rem] md:ml-[-2rem]">
+              <Button href={ROUTES.methode} size="md" variant="secondary">
+                Voir la méthode complète
+                <ArrowRight size={16} />
+              </Button>
+            </Reveal>
+          )}
         </div>
       </div>
     </section>
